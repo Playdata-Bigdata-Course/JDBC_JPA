@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	
+	<persistence-unit name="oracleDBUse">
+		<class>step03.entity.Member</class>
+		<class>step03.entity.Team</class> 
+		<!-- <class>step01.entity.Team</class>  
+		<class>step02.entity.Member</class>
+		<class>step02.entity.Team</class> -->
+		<properties>
+			<!-- db접속 정보 설정 tag와 속성 -->
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@127.0.0.1:1521:xe" />
+			<property name="javax.persistence.jdbc.user" value="SCOTT" />
+			<property name="javax.persistence.jdbc.password" value="TIGER" />
+
+			<!-- 각 db별 표현법이 다른 설정들은 해당 db를 관리해주는 방언 처리기 라 불리는 API들이 그 기능 수행 -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect" />
+
+			<!-- console창에 sql 문장 출력 -->
+			<property name="hibernate.show_sql" value="true" />
+
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+			
+		</properties>
+
+	</persistence-unit>
+</persistence>
